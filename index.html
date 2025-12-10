@@ -147,16 +147,72 @@
 
         /* ==================== GALLERY ==================== */
         .gallery { background: var(--bg-main); }
-        .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; }
-        .gallery-item { aspect-ratio: 4/3; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow-soft); transition: all 0.3s; position: relative; }
-        .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-card); }
-        .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
-        .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(30,58,47,0.85), transparent); color: #FFFFFF; padding: 30px 15px 12px; font-size: 0.85rem; font-weight: 500; }
+        .gallery-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 20px; 
+        }
+        .gallery-item { 
+            aspect-ratio: 4/3; 
+            border-radius: var(--radius-lg); 
+            overflow: hidden; 
+            box-shadow: var(--shadow-card); 
+            position: relative;
+        }
+        .gallery-item img { 
+            width: 100%; 
+            height: 100%; 
+            object-fit: cover; 
+            display: block; 
+            transition: transform 0.4s ease;
+        }
+        @media (min-width: 769px) {
+            .gallery-item:hover img { 
+                transform: scale(1.08); 
+            }
+        }
+        .gallery-caption { 
+            position: absolute; 
+            bottom: 0; 
+            left: 0; 
+            right: 0; 
+            background: linear-gradient(to top, rgba(30,58,47,0.9), transparent); 
+            color: #FFFFFF; 
+            padding: 40px 15px 15px; 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            text-align: center;
+        }
 
-        .social-row { display: flex; justify-content: center; gap: 15px; margin-top: 35px; }
-        .social-row a { display: flex; align-items: center; justify-content: center; width: 50px; height: 50px; border-radius: 50%; background: var(--primary-green); color: #FFFFFF; transition: all 0.2s; text-decoration: none; }
-        .social-row a:hover { background: var(--accent-orange); transform: translateY(-3px); }
-        .social-row svg { width: 24px; height: 24px; fill: currentColor; }
+        .social-row { 
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
+            gap: 20px; 
+            margin-top: 40px; 
+        }
+        .social-row a { 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            width: 52px; 
+            height: 52px; 
+            border-radius: 50%; 
+            background: var(--primary-green); 
+            color: #FFFFFF; 
+            transition: all 0.25s ease; 
+            text-decoration: none; 
+        }
+        .social-row a:hover { 
+            background: var(--accent-orange); 
+            transform: translateY(-4px); 
+            box-shadow: 0 6px 20px rgba(212,118,58,0.4);
+        }
+        .social-row svg { 
+            width: 24px; 
+            height: 24px; 
+            fill: currentColor; 
+        }
 
         /* ==================== WHY US ==================== */
         .why-us { background: var(--bg-section); }
@@ -246,10 +302,16 @@
         .footer-contact-info a { color: var(--accent-orange); text-decoration: none; display: block; margin-bottom: 8px; font-weight: 600; }
         .footer-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 15px; }
         .footer-copy { color: rgba(255,255,255,0.4); font-size: 0.8rem; }
-        .footer-social { display: flex; gap: 12px; }
-        .footer-social a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); transition: all 0.2s; }
-        .footer-social a:hover { background: var(--accent-orange); transform: translateY(-2px); }
-        .footer-social svg { width: 20px; height: 20px; fill: white; }
+        .footer-social { display: flex; align-items: center; gap: 15px; }
+        .footer-social a { display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.1); transition: all 0.25s ease; }
+        .footer-social a:hover { background: var(--accent-orange); transform: translateY(-3px); }
+        .footer-social svg { width: 22px; height: 22px; fill: white; }
+
+        /* Desktop only class */
+        .desktop-only { display: none; }
+        @media (min-width: 769px) {
+            .desktop-only { display: inline-flex; }
+        }
 
         /* ==================== MOBILE CTA ==================== */
         .mobile-cta { display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--white); padding: 12px 15px; padding-bottom: calc(12px + env(safe-area-inset-bottom)); box-shadow: 0 -4px 20px rgba(0,0,0,0.15); z-index: 999; gap: 12px; }
@@ -269,11 +331,20 @@
             .hero-logo { width: 140px; }
             .hero-buttons { flex-direction: column; }
             .hero-buttons .btn { width: 100%; }
-            .gallery-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+            .gallery-grid { 
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 12px; 
+            }
+            .gallery-caption {
+                font-size: 0.75rem;
+                padding: 25px 10px 10px;
+            }
             .contact-wrapper { grid-template-columns: 1fr; gap: 25px; }
             .contact-info { text-align: center; order: 2; }
             .contact-form { order: 1; }
             .contact-meta { justify-content: center; }
+            .contact-buttons { flex-direction: column; }
+            .contact-buttons .btn { width: 100%; }
             .form-row { grid-template-columns: 1fr; }
             .form-group.full { grid-column: span 1; }
             .footer-top { grid-template-columns: 1fr; text-align: center; }
@@ -387,12 +458,12 @@
                 <h2><span data-lang="en">Recent Projects</span><span data-lang="es">Proyectos Recientes</span></h2>
             </div>
             <div class="gallery-grid">
-                <div class="gallery-item"><img src="IMG_0434.jpeg" alt="Professional Lawn & Landscape Care"><div class="gallery-caption"><span data-lang="en">Professional Lawn & Landscape Care You Can Trust</span><span data-lang="es">Cuidado Profesional de Cesped y Paisajismo</span></div></div>
-                <div class="gallery-item"><img src="IMG_0082.JPG" alt="Weekly Mowing"><div class="gallery-caption"><span data-lang="en">Consistent, Reliable Weekly Mowing</span><span data-lang="es">Corte Semanal Confiable y Consistente</span></div></div>
-                <div class="gallery-item"><img src="IMG_2142.jpeg" alt="Shrub Trimming"><div class="gallery-caption"><span data-lang="en">Shrub Trimming & Seasonal Shaping</span><span data-lang="es">Poda de Arbustos y Formacion Estacional</span></div></div>
-                <div class="gallery-item"><img src="IMG_0829.jpeg" alt="Mulch Installation"><div class="gallery-caption"><span data-lang="en">Mulch Installation for Clean, Healthy Beds</span><span data-lang="es">Instalacion de Mantillo para Camas Saludables</span></div></div>
-                <div class="gallery-item"><img src="IMG_2621.JPG" alt="Rock and Gravel Work"><div class="gallery-caption"><span data-lang="en">Rock, Gravel & Border Enhancements</span><span data-lang="es">Mejoras de Roca, Grava y Bordes</span></div></div>
-                <div class="gallery-item"><img src="71244192855__689D958A-A710-4907-80F0-5961B5CDE308.jpeg" alt="Large Property Mowing"><div class="gallery-caption"><span data-lang="en">Large Property & Field Mowing</span><span data-lang="es">Corte de Propiedades Grandes y Campos</span></div></div>
+                <div class="gallery-item"><img src="gallery-1.jpg" alt="Professional Lawn Care"><div class="gallery-caption"><span data-lang="en">Professional Lawn & Landscape Care</span><span data-lang="es">Cuidado Profesional de Cesped y Paisajismo</span></div></div>
+                <div class="gallery-item"><img src="gallery-2.jpg" alt="Weekly Mowing"><div class="gallery-caption"><span data-lang="en">Consistent, Reliable Weekly Mowing</span><span data-lang="es">Corte Semanal Confiable</span></div></div>
+                <div class="gallery-item"><img src="gallery-3.jpg" alt="Shrub Trimming"><div class="gallery-caption"><span data-lang="en">Shrub Trimming & Seasonal Shaping</span><span data-lang="es">Poda de Arbustos y Formacion</span></div></div>
+                <div class="gallery-item"><img src="gallery-4.jpg" alt="Mulch Installation"><div class="gallery-caption"><span data-lang="en">Mulch Installation for Healthy Beds</span><span data-lang="es">Instalacion de Mantillo</span></div></div>
+                <div class="gallery-item"><img src="gallery-5.jpg" alt="Rock and Gravel Work"><div class="gallery-caption"><span data-lang="en">Rock, Gravel & Border Enhancements</span><span data-lang="es">Roca, Grava y Bordes</span></div></div>
+                <div class="gallery-item"><img src="gallery-6.jpg" alt="Large Property Mowing"><div class="gallery-caption"><span data-lang="en">Large Property & Field Mowing</span><span data-lang="es">Corte de Propiedades Grandes</span></div></div>
             </div>
             <div class="social-row">
                 <a href="https://www.facebook.com/profile.php?id=61563279906958" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
@@ -427,6 +498,7 @@
             <div class="cities-grid">
                 <span class="city-tag">Naperville</span><span class="city-tag">Wheaton</span><span class="city-tag">Glen Ellyn</span><span class="city-tag">Downers Grove</span><span class="city-tag">Lisle</span><span class="city-tag">West Chicago</span><span class="city-tag">Carol Stream</span><span class="city-tag">Aurora</span><span class="city-tag">Batavia</span><span class="city-tag">Geneva</span><span class="city-tag">St. Charles</span>
             </div>
+            <p style="margin-top: 20px; color: var(--text-light); font-size: 0.9rem;"><span data-lang="en">Don't see your city? Reach out — we likely serve your area.</span><span data-lang="es">No ves tu ciudad? Contactanos — probablemente servimos tu area.</span></p>
         </div>
     </section>
 
@@ -475,8 +547,9 @@
                 <div class="contact-info">
                     <p><span data-lang="en">Call, text, or fill out the form. We respond within 24-48 hours.</span><span data-lang="es">Llama, envia mensaje, o llena el formulario. Respondemos en 24-48 horas.</span></p>
                     <div class="contact-buttons">
-                        <a href="tel:2242582227" class="btn btn-secondary" style="background:var(--white);color:var(--primary-green);"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;stroke:var(--primary-green);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>224-258-2227</a>
-                        <a href="#" class="btn btn-primary" id="textBtn"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;stroke:white;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span data-lang="en">Text Us</span><span data-lang="es">Mensaje</span></a>
+                        <a href="tel:2242582227" class="btn btn-secondary" style="background:var(--white);color:var(--primary-green);"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;stroke:var(--primary-green);"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-lang="en">Call Now</span><span data-lang="es">Llamar</span></a>
+                        <a href="sms:2242582227?body=Hi,%20I'm%20interested%20in%20getting%20a%20quote%20for%20____." class="btn btn-primary" id="textBtn"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;stroke:white;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span data-lang="en">Text Us</span><span data-lang="es">Mensaje</span></a>
+                        <a href="mailto:Munsonservices@gmail.com?subject=Quote%20Request" class="btn btn-secondary desktop-only" style="background:var(--white);color:var(--primary-green);"><svg class="icon" viewBox="0 0 24 24" style="width:20px;height:20px;stroke:var(--primary-green);"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg><span data-lang="en">Email Us</span><span data-lang="es">Correo</span></a>
                     </div>
                     <div class="contact-meta">
                         <div class="contact-meta-item"><div class="contact-meta-label"><span data-lang="en">Hours</span><span data-lang="es">Horario</span></div><div class="contact-meta-value">7 Days</div></div>
@@ -488,11 +561,12 @@
                         <div class="form-group"><label for="name"><span data-lang="en">Name</span><span data-lang="es">Nombre</span> *</label><input type="text" id="name" name="name" required></div>
                         <div class="form-group"><label for="phone"><span data-lang="en">Phone</span><span data-lang="es">Telefono</span> *</label><input type="tel" id="phone" name="phone" required></div>
                     </div>
+                    <div class="form-group full"><label for="email"><span data-lang="en">Email</span><span data-lang="es">Correo</span></label><input type="email" id="email" name="email" placeholder="your@email.com"></div>
                     <div class="form-row">
                         <div class="form-group"><label for="city"><span data-lang="en">City</span><span data-lang="es">Ciudad</span> *</label><select id="city" name="city" required><option value="">Select...</option><option>Naperville</option><option>Wheaton</option><option>Glen Ellyn</option><option>Downers Grove</option><option>Lisle</option><option>West Chicago</option><option>Carol Stream</option><option>Aurora</option><option>Batavia</option><option>Geneva</option><option>St. Charles</option><option>Other</option></select></div>
                         <div class="form-group"><label for="service"><span data-lang="en">Service</span><span data-lang="es">Servicio</span> *</label><select id="service" name="service" required><option value="">Select...</option><option>Mowing</option><option>Mulch</option><option>Shrub Trimming</option><option>Planting</option><option>Spring/Summer Cleanup</option><option>Fall Cleanup</option><option>Leaf Removal</option><option>Snow Removal</option><option>Christmas Decorations</option><option>Handyman</option><option>Other</option></select></div>
                     </div>
-                    <div class="form-group full"><label for="message"><span data-lang="en">Details</span><span data-lang="es">Detalles</span></label><textarea id="message" name="message"></textarea></div>
+                    <div class="form-group full"><label for="message"><span data-lang="en">Message</span><span data-lang="es">Mensaje</span></label><textarea id="message" name="message" placeholder="Tell us about your project..."></textarea></div>
                     <button type="submit" class="btn btn-primary"><span data-lang="en">Send Request</span><span data-lang="es">Enviar</span></button>
                 </form>
             </div>
@@ -541,39 +615,30 @@
     <!-- MOBILE CTA -->
     <div class="mobile-cta">
         <a href="tel:2242582227" class="cta-call"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;stroke:white;"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-lang="en">Call</span><span data-lang="es">Llamar</span></a>
-        <a href="#" class="cta-text" id="textBtnMobile"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;stroke:white;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span data-lang="en">Text</span><span data-lang="es">Mensaje</span></a>
+        <a href="sms:2242582227?body=Hi,%20I'm%20interested%20in%20getting%20a%20quote%20for%20____." class="cta-text"><svg class="icon" viewBox="0 0 24 24" style="width:18px;height:18px;stroke:white;"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span data-lang="en">Text</span><span data-lang="es">Mensaje</span></a>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         (function() {
             const body = document.body;
             const langToggle = document.getElementById('langToggle');
-            const textBtn = document.getElementById('textBtn');
-            const textBtnMobile = document.getElementById('textBtnMobile');
             const BUSINESS_PHONE = '2242582227';
             const BUSINESS_EMAIL = 'Munsonservices@gmail.com';
-            const sms = { en: "Hi, I'd like a quote for lawn/landscaping services.", es: "Hola, me gustaria una cotizacion para servicios de jardineria." };
 
-            if (localStorage.getItem('am-lang') === 'es') { body.classList.replace('lang-en', 'lang-es'); langToggle.textContent = 'EN'; }
+            // Language toggle
+            if (localStorage.getItem('am-lang') === 'es') { 
+                body.classList.replace('lang-en', 'lang-es'); 
+                langToggle.textContent = 'EN'; 
+            }
 
             langToggle.addEventListener('click', () => {
                 const isEn = body.classList.contains('lang-en');
                 body.classList.replace(isEn ? 'lang-en' : 'lang-es', isEn ? 'lang-es' : 'lang-en');
                 langToggle.textContent = isEn ? 'EN' : 'ES';
                 localStorage.setItem('am-lang', isEn ? 'es' : 'en');
-                updateSMS();
             });
 
-            function updateSMS() {
-                const lang = body.classList.contains('lang-es') ? 'es' : 'en';
-                const msg = encodeURIComponent(sms[lang]);
-                const sep = /iPhone|iPad|iPod/.test(navigator.userAgent) ? '&' : '?';
-                const href = `sms:${BUSINESS_PHONE}${sep}body=${msg}`;
-                if (textBtn) textBtn.href = href;
-                if (textBtnMobile) textBtnMobile.href = href;
-            }
-            updateSMS();
-
+            // FAQ accordion
             document.querySelectorAll('.faq-item').forEach(item => {
                 item.querySelector('.faq-question').addEventListener('click', () => {
                     const open = item.classList.contains('active');
@@ -582,29 +647,45 @@
                 });
             });
 
+            // Service card click - SMS on mobile, scroll on desktop
             document.querySelectorAll('.service-card').forEach(card => {
                 card.addEventListener('click', function() {
                     const lang = body.classList.contains('lang-es') ? 'es' : 'en';
                     const serviceName = this.getAttribute('data-service') || this.querySelector('h3').textContent.trim();
-                    const messages = { en: `Hi, I'm interested in your ${serviceName} services. Can I get a quote?`, es: `Hola, estoy interesado en sus servicios de ${serviceName}. Puedo obtener una cotizacion?` };
+                    const messages = { 
+                        en: `Hi, I'm interested in your ${serviceName} services. Can I get a quote?`, 
+                        es: `Hola, estoy interesado en sus servicios de ${serviceName}. Puedo obtener una cotizacion?` 
+                    };
                     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-                    if (isMobile) { const sep = /iPhone|iPad|iPod/.test(navigator.userAgent) ? '&' : '?'; window.location.href = `sms:${BUSINESS_PHONE}${sep}body=${encodeURIComponent(messages[lang])}`; }
-                    else { document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); }
+                    if (isMobile) { 
+                        window.location.href = `sms:${BUSINESS_PHONE}?body=${encodeURIComponent(messages[lang])}`; 
+                    } else { 
+                        document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); 
+                    }
                 });
             });
 
+            // Contact form submission
             document.getElementById('contactForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 const formData = new FormData(this);
                 const name = formData.get('name') || '';
                 const phone = formData.get('phone') || '';
+                const email = formData.get('email') || '';
                 const service = formData.get('service') || '';
-                const details = formData.get('message') || 'No additional details provided.';
+                const message = formData.get('message') || 'No additional details provided.';
                 const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+                
                 if (isMobile) {
-                    const smsMessage = `Hi, my name is ${name}.\nPhone: ${phone}\nService Needed: ${service}\nDetails: ${details}\n\nYou can text photos here for a faster quote.`;
-                    const sep = /iPhone|iPad|iPod/.test(navigator.userAgent) ? '&' : '?';
-                    window.location.href = `sms:${BUSINESS_PHONE}${sep}body=${encodeURIComponent(smsMessage)}`;
+                    const smsMessage = `Hi, my name is ${name}.\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\nMessage: ${message}`;
+                    window.location.href = `sms:${BUSINESS_PHONE}?body=${encodeURIComponent(smsMessage)}`;
                 } else {
-                    const emailSubject = "Quote Request - AM Home Services";
-                    const emailBody = `Hi, my name is ${name}.\nPhone: ${phone}\nService Needed: ${service}\nDetails: ${details}\n\nYou can attach photos
+                    const emailSubject = `Quote Request - ${service}`;
+                    const emailBody = `Name: ${name}\nPhone: ${phone}\nEmail: ${email}\nService: ${service}\nMessage: ${message}`;
+                    window.location.href = `mailto:${BUSINESS_EMAIL}?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                }
+            });
+        })();
+    </script>
+</body>
+</html>
