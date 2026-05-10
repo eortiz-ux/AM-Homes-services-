@@ -46,30 +46,17 @@
 
 ## Offer Strategy
 
-### **Recommended Opening Offer: $325,000**
+### **Offer: $360,000 + $5,000 Closing Credits**
+
+**Total Seller Concession:** $39,900 below asking price
 
 **Justification:**
 - Recent comp (5309) sold for $395K with superior condition
 - 5322 is 12 years older, has no basement, window AC only
 - Higher annual taxes ($1,900/yr more) reduce net value
 - 25 days on market shows slowing interest
-- Current asking price ($399.9K) is $4,900 higher than a better property
-
-### **Negotiation Ladder**
-
-| Step | Our Offer | Expected Counter | Action |
-|------|-----------|-----------------|--------|
-| **Initial** | $325,000 | $375,000-$385,000 | Submit with comp analysis |
-| **Counter 1** | $340,000 | $365,000-$370,000 | Use basement/HVAC argument |
-| **Counter 2** | $355,000 | $360,000-$365,000 | Final position |
-| **Settlement Target** | $355,000-$365,000 | — | Close here or walk |
-
-### **Maximum Walk-Away Price: $365,000**
-
-At $365K, you're still paying:
-- $30K+ less than asking
-- Better comp sold for $395K
-- Fair premium for potential future updates
+- $5K in closing credits reduces buyer's cash at closing while appearing competitive on price
+- Single, firm offer with clear terms
 
 ---
 
